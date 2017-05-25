@@ -166,8 +166,15 @@ if 'SENDGRID_USERNAME' in os.environ:
     SENTRY_OPTIONS['mail.host'] = 'smtp.sendgrid.net'
     SENTRY_OPTIONS['mail.username'] = os.environ['SENDGRID_USERNAME']
     SENTRY_OPTIONS['mail.password'] = os.environ['SENDGRID_PASSWORD']
-SENTRY_OPTIONS['mail.port'] = 587
-SENTRY_OPTIONS['mail.use-tls'] = True
+    SENTRY_OPTIONS['mail.port'] = 587
+    SENTRY_OPTIONS['mail.use-tls'] = True
+
+elif 'SENDINC_USERNAME' in os.environ:
+    SENTRY_OPTIONS['mail.host'] = 'smtp.sendinc.net'
+    SENTRY_OPTIONS['mail.username'] = os.environ['SENDINC_USERNAME']
+    SENTRY_OPTIONS['mail.password'] = os.environ['SENDINC_PASSWORD']
+    SENTRY_OPTIONS['mail.port'] = 586
+    SENTRY_OPTIONS['mail.use-tls'] = True
 
 # The email address to send on behalf of
 SENTRY_OPTIONS['mail.from'] = os.environ.get('SERVER_EMAIL', 'root@localhost')
